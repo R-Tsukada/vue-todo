@@ -9,9 +9,14 @@
 <div id="app">
   <h2>ToDo</h2>
   <form v-on:submit.prevent>
-    <input type="text" v-model="newTodo">
+    <input type="text" ref="task">
     <button v-on:click="addTask">New ToDo</button>
   </form>
+  <ul>
+    <li v-for="todo in todos">
+      <span>{{ todo.task }}</span>
+    </li>
+  </ul>
   <pre>{{ $data }}</pre>
 </div>
 <script src="https://unpkg.com/vue@3.1.5"></script>

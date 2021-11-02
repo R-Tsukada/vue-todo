@@ -19,14 +19,15 @@ const app = Vue.createApp({
     todos: todoStorage.fetch(),
   }),
   methods: {
-    addTask: function(event) {
-      console.log('success')
-      let todo = {
-        task: this.newTodo,
-      }
-      this.todos.push(todo)
+    addTask: function(event, value) {
+      let task = this.$refs.task
+      this.todos.push({
+        id: todoStorage.uid++,
+        task: task.value
+      })
     }
   },
+
   watch: {
     todos: {
       handler: function(todos) {
