@@ -14,7 +14,10 @@
   </form>
   <ul>
     <li v-for="(todo, index) in todos">
-      <span>{{ todo.task }}</span>
+      <input type="checkbox" v-model="todo.isDone">
+      <span v-bind:class="{ done: todo.isDone }">
+        {{ todo.task }}
+      </span>
       <button v-on:click="deleteTask(index)">delete</button>
     </li>
   </ul>

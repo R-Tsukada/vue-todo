@@ -22,7 +22,8 @@ const app = Vue.createApp({
     addTask: function(event, value) {
       let task = this.$refs.task
       this.todos.push({
-        task: task.value
+        task: task.value,
+        isDone: false
       })
     },
     deleteTask: function(index) {
