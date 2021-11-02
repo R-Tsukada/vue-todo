@@ -13,8 +13,9 @@
     <button v-on:click="addTask">New ToDo</button>
   </form>
   <ul>
-    <li v-for="todo in todos">
+    <li v-for="(todo, index) in todos">
       <span>{{ todo.task }}</span>
+      <button v-on:click="deleteTask(index)">delete</button>
     </li>
   </ul>
   <pre>{{ $data }}</pre>

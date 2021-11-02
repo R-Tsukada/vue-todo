@@ -22,9 +22,11 @@ const app = Vue.createApp({
     addTask: function(event, value) {
       let task = this.$refs.task
       this.todos.push({
-        id: todoStorage.uid++,
         task: task.value
       })
+    },
+    deleteTask: function(index) {
+      this.todos.splice(index, 1)
     }
   },
 
