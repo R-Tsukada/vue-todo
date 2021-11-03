@@ -17,7 +17,7 @@ const app = Vue.createApp({
   data:() => ({
     newTodo: '',
     todos: todoStorage.fetch(),
-    editedTodo: null,
+    beforeEditCache: null
   }),
   methods: {
     addTask: function(event, value) {
@@ -31,7 +31,19 @@ const app = Vue.createApp({
       this.todos.splice(index, 1)
     },
     editTodo(todo) {
-      this.editedTodo = todo
+      this.beforeEditCache = todo
+    },
+    doneEdit(todo) {
+      if (!this.beforeEditCache) {
+        return;
+      }
+      this.beforeEditCache = null;
+      const task = todo.task.trim()
+      if (task) {
+        todo.task = task
+      } else {
+        this.deleteTask(todo)
+      }
     }
   },
   watch: {

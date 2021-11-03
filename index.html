@@ -13,10 +13,10 @@
     <button v-on:click="addTask">New ToDo</button>
   </form>
   <ul>
-    <li v-for="(todo, index) in todos" v-bind:class="{ editing: todo == editedTodo }">
+    <li v-for="(todo, index) in todos" v-bind:class="{ editing: todo == beforeEditCache }">
       <input type="checkbox" v-model="todo.isDone">
       <span class="taskName" v-bind:class="{ done: todo.isDone }" @click="editTodo(todo)">{{ todo.task }}</span>
-      <input class="edit" type="text" v-model="todo.task">
+      <input class="edit" type="text" v-model="todo.task" @keypress.enter="doneEdit(todo)">
       <button v-on:click="deleteTask(index)">delete</button>
     </li>
   </ul>
