@@ -5,3 +5,18 @@
 #app li > span.done {
     text-decoration: line-through;
 }
+
+/* メモ一覧がクリックされたら、input（編集が出現する）*/
+#app li.editing .edit {
+    display: block;
+}
+
+/* 普段はinput（編集用）は消えてる*/
+#app li .edit {
+    display: none;
+}
+
+/* クリックされたタスクは消える */
+#app li.editing .taskName {
+    display: none;
+}
