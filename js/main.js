@@ -53,6 +53,13 @@ const app = Vue.createApp({
       },
       deep: true
     }
+  },
+  directives: {
+    'todo-focus'(element, binding) {
+      if (binding.value) {
+        element.focus();
+      }
+    }
   }
 })
 app.mount('#app')

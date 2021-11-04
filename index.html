@@ -17,7 +17,11 @@
       <input class="taskDone" type="checkbox" v-model="todo.isDone">
       <span class="taskName" v-bind:class="{ done: todo.isDone }" @click="editTodo(todo)">{{ todo.task }}</span>
       <button class="deleteButton" v-on:click="deleteTask(index)" v-bind:class="{ done: todo.isDone }">delete</button>
-      <input class="edit" type="text" v-model="todo.task" @keypress.enter="doneEdit(todo)">
+      <input class="edit" type="text"
+             v-model="todo.task"
+             @keypress.enter="doneEdit(todo)"
+             v-todo-focus="todo == editedTodo"
+             @blur="doneEdit(todo)">
     </li>
   </ul>
   <pre>{{ $data }}</pre>
