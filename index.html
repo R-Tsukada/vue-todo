@@ -9,7 +9,9 @@
 <div id="app">
   <h2>ToDo</h2>
   <form class="newTaskForm" v-on:submit.prevent>
-    <input class="newTaskInput" type="text" ref="task">
+    <input class="newTaskInput" type="text" ref="task"
+           autocomplete="off"
+           placeholder="Please new todo task">
     <button v-on:click="addTask">New ToDo</button>
   </form>
   <ul>
