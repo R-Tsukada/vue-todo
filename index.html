@@ -8,16 +8,16 @@
 <body>
 <div id="app">
   <h2>ToDo</h2>
-  <form v-on:submit.prevent>
-    <input type="text" ref="task">
+  <form class="newTaskForm" v-on:submit.prevent>
+    <input class="newTaskInput" type="text" ref="task">
     <button v-on:click="addTask">New ToDo</button>
   </form>
   <ul>
     <li v-for="(todo, index) in todos" v-bind:class="{ editing: todo == beforeEditCache }">
-      <input type="checkbox" v-model="todo.isDone">
+      <input class="taskDone" type="checkbox" v-model="todo.isDone">
       <span class="taskName" v-bind:class="{ done: todo.isDone }" @click="editTodo(todo)">{{ todo.task }}</span>
+      <button class="deleteButton" v-on:click="deleteTask(index)" v-bind:class="{ done: todo.isDone }">delete</button>
       <input class="edit" type="text" v-model="todo.task" @keypress.enter="doneEdit(todo)">
-      <button v-on:click="deleteTask(index)">delete</button>
     </li>
   </ul>
   <pre>{{ $data }}</pre>
