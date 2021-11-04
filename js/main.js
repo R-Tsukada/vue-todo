@@ -26,6 +26,7 @@ const app = Vue.createApp({
         task: task.value,
         isDone: false
       })
+      task.value = ''
     },
     deleteTask: function(index) {
       this.todos.splice(index, 1)
