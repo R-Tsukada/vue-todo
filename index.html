@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue todo</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div id="app">
+  <h2>ToDo</h2>
+  <form class="newTaskForm" v-on:submit.prevent>
+    <input class="newTaskInput" type="text" ref="task"
+           autocomplete="off"
+           placeholder="Please new todo task">
+    <button v-on:click="addTask">New ToDo</button>
+  </form>
+  <ul>
+    <li v-for="(todo, index) in todos" v-bind:class="{ editing: todo == beforeEditCache }">
+      <input class="taskDone" type="checkbox" v-model="todo.isDone">
+      <span class="taskName" v-bind:class="{ done: todo.isDone }" @click="editTodo(todo)">{{ todo.task }}</span>
+      <button class="deleteButton" v-on:click="deleteTask(index)" v-bind:class="{ done: todo.isDone }">delete</button>
+      <input class="edit" type="text"
+             v-model="todo.task"
+             @keypress.enter="doneEdit(todo)"
+             v-todo-focus="todo == editedTodo"
+             @blur="doneEdit(todo)">
+    </li>
+  </ul>
+</div>
+<script src="https://unpkg.com/vue@3.1.5"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

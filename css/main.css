@@ -1,0 +1,104 @@
+body {
+    background-color: #fef6e4;
+}
+#app h2 {
+    text-align: center;
+    color: #001858;
+}
+
+#app form {
+    width: 80%;
+    height: 100px;
+    margin: auto;
+    text-align: center;
+}
+
+#app form > input {
+    text-align: center;
+    width: 60%;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+#app form > button {
+    height: 50px;
+    color: #001858;
+    background-color: #f582ae;
+    cursor: pointer;
+    border-radius: 100vh;
+    border: none;
+    margin-left: 20px;
+}
+
+#app form > button:hover {
+    color: #fff;
+    background: #f58299;
+}
+
+#app ul {
+    list-style: none;
+}
+
+#app li {
+    border-top: solid 1px;
+    height: 30px;
+    width: 40%;
+    margin: auto;
+    padding: 25px;
+}
+
+#app li > span {
+    font-size: 25px;
+    margin-left: 20px;
+}
+
+#app li > button {
+    margin-left: 20px;
+    height: 50px;
+    color: #001858;
+    background-color: #f582ae;
+    cursor: pointer;
+    border-radius: 100vh;
+    border: none;
+}
+
+#app li > button:hover {
+    color: #001858;
+    background: #f58299;
+}
+
+#app li > span.done {
+    text-decoration: line-through;
+}
+
+/* クリックされたタスクは消える */
+#app li.editing .taskName {
+    display: none;
+}
+
+/* クリックされたタスクとともに消える */
+#app li.editing .deleteButton {
+    display: none;
+}
+
+#app li.editing .taskDone {
+    display: none;
+}
+
+/* メモ一覧がクリックされたら、input（編集が出現する）*/
+#app li.editing .edit {
+    display: block;
+    width: 70%;
+    margin-left: 20px;
+    margin-top: 0px;
+    height: 40px;
+    border: none;
+    font-size: 25px;
+}
+
+/* 普段はinput（編集用）は消えてる*/
+#app li .edit {
+    display: none;
+}
